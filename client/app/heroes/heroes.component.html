@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col s1">
+    <label>Hero Name: </label>
+    <input #heroName placeholder="Name" type="text" class="validate">
+    <a class="waves-effect waves-light btn" (click)="add(heroName.value); heroName.value=''">
+      Add
+    </a>
+  </div>
+</div>
+<span>My Heroes</span>
+  <div class="collection">
+    <a *ngFor="let hero of heroes" [class.active]="hero === selectedHero" (click)="onSelect(hero)" class="collection-item">
+      <div>{{hero.name}}<a class="secondary-content"><i class="material-icons" (click)="delete(hero); $event.stopPropagation()">delete</i></a></div>
+    </a>
+  </div>
+<div *ngIf="selectedHero">
+  <span>
+    {{selectedHero.name | uppercase}} is my hero
+  </span>
+  <a class="btn" (click)="gotoDetail()">View Details</a>
+</div>

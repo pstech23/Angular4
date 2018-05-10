@@ -1,0 +1,7 @@
+<app-hero-search></app-hero-search>
+<span>Top Heroes</span>
+<div class="collection">
+  <a *ngFor="let hero of heroes" [routerLink]="['/detail', hero._id]" class="collection-item">
+    <span>{{hero.name}}</span>
+  </a>
+</div>
